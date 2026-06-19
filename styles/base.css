@@ -1,0 +1,93 @@
+:root {
+    --black: #121212;
+    --gray: #2C2C2C;
+    --cyan: #00B4D8;
+    --lime: #9EF01A;
+    --text: #E0E0E0;
+}
+
+body{
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    margin: 0px;
+    background-color: var(--black);
+}
+
+h1, h2, h3, p {
+    color: var(--text);
+}
+
+/************ Header  **************/
+
+header {
+    display: grid;
+    grid-template-columns: 70px auto 150px auto;
+    padding: 16px 30px;
+    background-color: var(--lime);
+    margin: 0px;
+}
+
+header ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 0px 30px;
+    font-size: 13px;
+}
+
+header li {
+    list-style-type: none;
+}
+
+/********** Search Bar ***********/
+
+.search-container {
+    position: relative;
+    max-width: 350px;
+    margin-right: 0pc;
+}
+
+.search-input {
+    position: absolute;
+    top: 18%;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid var(--black);
+    border-radius: 20px;
+    font: 16px;
+}
+
+.search-container button {
+    position: absolute;
+    right: 0px;
+    top: 25%;
+    background: none;
+    border: none;
+    padding: 0px;
+}
+
+/********** Music Card ********/
+
+.track-card {
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    width: 200px;
+    margin: 10px;
+}
+
+.track-card:hover{
+    border: 1px solid var(--lime);
+}
+
+.track-card img {
+    align-self: center;
+    width: 150px;
+}
+
+#trackList {
+    display: flex;
+    flex-wrap: wrap;
+}
+

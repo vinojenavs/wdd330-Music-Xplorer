@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spotify Global Top Tracks</title>
+</head>
+<body>
+  <h1>Global Top Tracks (Spotify)</h1>
+  <button onclick="getGlobalTopTracks()">Load Top 50</button>
+
+  <ul id="trackList"></ul>
+
+  <script>
+    const clientID = "YOUR_CLIENT_ID";
+    const clientSecret = "YOUR_CLIENT_SECRET";
+
+    async function getToken() {
+      const result = await fetch("https://accounts.spotify.com/api/token", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "Authorization": "Basic " + btoa(clientID + ":" + clientSecret)
+        },
+        body: "grant_type=client_credentials"
+      });
+      const data = await result.json();
+      return data.access_token;
+    }
+
+    async function getGlobalTopTracks() {
+      const token = await getToken();
+
+      // Global Top 50 playlist ID
+      const playlistId = "37i9dQZEVXbMDoHDwVN2tF";
+
+      const result = await fetch(
+        `https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=50`,
+        { headers: { Authorization: "Bearer " + token } }
+      );
+
+      const data = await result.json();
+
+      // Extract tracks and sort by popularity
+      const tracks = data.items.map(item => item.track);
+      const sorted = tracks.sort((a, b) => b.popularity - a.popularity);
+
+      const list = document.getElementById("trackList");
+      list.innerHTML = "";
+
+      sorted.forEach(track => {
+        const li = document.createElement("li");
+        li.innerHTML = `${track.name} — ${track.artists.map(a => a.name).join(", ")} 
+          (Popularity: ${track.popularity}) 
+          <a href="${track.external_urls.spotify}" target="_blank">Listen</a>`;
+        list.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
