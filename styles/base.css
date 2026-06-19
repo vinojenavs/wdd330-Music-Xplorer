@@ -21,14 +21,18 @@ h1, h2, h3, p {
 
 header {
     display: grid;
-    grid-template-columns: 70px auto 150px auto;
-    padding: 16px 30px;
+    grid-template-columns: 70px auto 200px 50px;
+    padding: 16px 10px;
     background-color: var(--lime);
     margin: 0px;
 }
 
+header img {
+    padding-left: 25px;
+}
+
 header ul {
-    display: flex;
+    display: none;
     justify-content: space-around;
     padding: 0px 30px;
     font-size: 13px;
@@ -38,12 +42,40 @@ header li {
     list-style-type: none;
 }
 
+/*********** Hamburger Menu ***********/
+
+.hamburger {
+    grid-column: 4/5;
+    background: none;
+    border: none;
+    margin-right: 0px;
+    padding-right: 0px;
+}
+
+.hamburger::before {
+    content: "\2630";
+    font-size: 30px;
+}
+
+.hamburger.show::before {
+    content: "\00D7";
+    font-size: 34.5px;
+}
+
+.navigations.show {
+    display: flex;
+    justify-content: space-around;
+    grid-column: 1/4;
+    grid-row: 2/3;
+}
+
 /********** Search Bar ***********/
 
 .search-container {
+    grid-column: 3/4;
     position: relative;
     max-width: 350px;
-    margin-right: 0pc;
+    margin-right:20px;
 }
 
 .search-input {
@@ -71,7 +103,7 @@ header li {
     color: var(--text);
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     width: 200px;
     margin: 10px;
@@ -97,5 +129,6 @@ header li {
 #trackList {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 

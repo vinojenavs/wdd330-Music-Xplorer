@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/large.css">
     <script type="module" src="js/app.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,19 +15,7 @@
         rel="stylesheet">
 </head>
 <body>
-    <header>
-        <img src="images/icon.svg" alt="music icon" width="40px">
-        <ul>
-            <li><img src="images/home.svg" alt="home icon" width="15px"> Home</li>
-            <li><img src="images/playlists.svg" alt="playlists icon" width="15px"> Playlists</li>
-            <li><img src="images/charts.svg" alt="charts icon" width="15px"> Trending</li>
-            <li><img src="images/heart.svg" alt="favorites icon" width="15px"> Favorites</li>
-        </ul>
-        <div class="search-container">
-            <input type="text" placeholder="Search..." class="search-input" id="searchInput">
-            <button id="searchBtn"><img src="images/search.svg" alt="" width="20px" class="search-icon"></button>
-        </div>
-    </header>
+    <header id="m-header"></header>
     <main>
         <section>
             <div id="trackList"></div>

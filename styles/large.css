@@ -1,0 +1,21 @@
+@media only screen and (min-width: 550px) {
+    header {
+        display: grid;
+        grid-template-columns: 70px auto 150px auto;
+    }
+
+    header ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0px 30px;
+        font-size: 13px;
+    }
+
+    header li {
+        list-style-type: none;
+    }
+
+    .hamburger {
+        display: none;
+    }
+}

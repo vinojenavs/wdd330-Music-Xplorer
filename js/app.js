@@ -1,19 +1,35 @@
 import { searchTracks } from "./search.mjs";
-//import { buildTrackCard } from "./search.mjs";
-const searchButton = document.getElementById("searchBtn");
+import { loadHeaderFooter } from "./headerfooter.mjs";
 
-searchButton.addEventListener("click", async () => {
-  const query = document.getElementById("searchInput").value;
-  const tracks = await searchTracks(query);
+loadHeaderFooter();
 
-  const list = document.getElementById("trackList");
-  list.innerHTML = "";
+async function init() {
+  await loadHeaderFooter();
 
-  tracks.forEach(track => {
-    const card = buildTrackTemplate(track);
-    list.appendChild(card);
-  });
-});
+  const hamButton = document.getElementById("ham-btn");
+  const navigation = document.getElementById("nav-Btn");
+  hamButton.addEventListener('click', () => {
+    hamButton.classList.toggle('show');
+    navigation.classList.toggle('show');
+  })
+
+  //Waits for header and footer to exist, so listeners can be attached
+  const searchButton = document.getElementById("searchBtn");
+  if (searchButton) {
+    searchButton.addEventListener("click", async () => {
+      const query = document.getElementById("searchInput").value;
+      const tracks = await searchTracks(query);
+      const list = document.getElementById("trackList");
+      list.innerHTML = "";
+      tracks.forEach(track => {
+        const card = buildTrackTemplate(track);
+        list.appendChild(card);
+      });
+    });
+  } 
+}
+
+document.addEventListener("DOMContentLoaded", init);
 
 function buildTrackTemplate(track) {
   const card = document.createElement("div");
