@@ -77,6 +77,14 @@ header li {
     margin: 10px;
 }
 
+.track-card p {
+    margin: 5px;
+}
+
+.track-card a {
+    text-decoration: none;
+}
+
 .track-card:hover{
     border: 1px solid var(--lime);
 }
