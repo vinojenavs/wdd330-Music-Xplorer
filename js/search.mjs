@@ -2,7 +2,6 @@ import { getToken } from "./auth.mjs";
 
 export async function searchTracks(query) {
   const token = await getToken();
-  console.log(token);
   const result = await fetch(
     `https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=track&limit=10`,
     { headers: { Authorization: "Bearer " + token } }

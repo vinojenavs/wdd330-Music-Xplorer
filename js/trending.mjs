@@ -1,19 +1,20 @@
 import { searchTracks } from "./search.mjs";
+import { toggleFavorite } from "./favorites.mjs";
 
 export async function trending() {
-    const fixedQuery = "trending";
-    const tracks = await searchTracks(fixedQuery);
+  const fixedQuery = "trending";
+  const tracks = await searchTracks(fixedQuery);
 
-    function createPlaylist(query, tracks) {
-        const list = document.getElementById(query);
-        list.innerHTML = "";
-        tracks.forEach(track => {
-            const card = buildTrackTemplate(track);
-            list.appendChild(card);
-        });
-    }
+  function createPlaylist(query, tracks) {
+    const list = document.getElementById(query);
+    list.innerHTML = "";
+    tracks.forEach(track => {
+      const card = buildTrackTemplate(track);
+      list.appendChild(card);
+    });
+  }
 
-    createPlaylist(fixedQuery, tracks);
+  createPlaylist(fixedQuery, tracks);
 }
 
 function buildTrackTemplate(track) {
@@ -26,6 +27,10 @@ function buildTrackTemplate(track) {
     <p>Artist(s): ${track.artists.map(a => a.name).join(", ")}</p>
     <p>Album: ${track.album.name}</p>
     </a>
-  `;
+    <button class="fav-btn">Add to favorite</button>
+      `;
+  card.querySelector(".fav-btn").addEventListener("click", () => {
+    toggleFavorite(track)
+  })
   return card;
 }

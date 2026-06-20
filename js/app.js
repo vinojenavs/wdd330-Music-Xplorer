@@ -2,6 +2,7 @@ import { searchTracks } from "./search.mjs";
 import { loadHeaderFooter } from "./headerfooter.mjs";
 import { playlist } from "./playlists.mjs";
 import { trending } from "./trending.mjs";
+import { renderFavorites, toggleFavorite } from "./favorites.mjs";
 
 async function init() {
   await loadHeaderFooter();
@@ -27,6 +28,8 @@ async function init() {
       });
     });
   }
+
+  renderFavorites();
 }
 
 document.addEventListener("DOMContentLoaded", init);
@@ -41,19 +44,24 @@ function buildTrackTemplate(track) {
     <p>Artist(s): ${track.artists.map(a => a.name).join(", ")}</p>
     <p>Album: ${track.album.name}</p>
     </a>
+    <button class="fav-btn">Add to favorite</button>
   `;
+  card.querySelector(".fav-btn"). addEventListener("click", () => {
+    toggleFavorite(track)
+  })
   return card;
 }
+
 
 const plcon = document.getElementById("playlist");
 if (plcon) {
   playlist();
-}
+};
 
 const pltrend = document.getElementById("trending");
 if (pltrend) {
   trending();
-}
+};
 
 const carousel = document.querySelector('.news-carousel');
 
