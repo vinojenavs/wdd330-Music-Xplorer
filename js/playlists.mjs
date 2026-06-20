@@ -26,14 +26,13 @@ export async function playlist() {
 
 function buildListTemplate(track) {
   const playlist = document.createElement('div');
-  playlist.className = "lists"
+  playlist.className = "rowsong"
   playlist.innerHTML = `
   <a href="${track.external_urls.spotify}" target="_blank">
-    <img src="${track.album.images[0]?.url}" alt="Album Art" width="10"><br>
+    <img src="${track.album.images[0]?.url}" alt="Album Art" width="40px" height="40px"><br>
     <p><strong>${track.name}</strong></p>
     <p>Artist(s): ${track.artists.map(a => a.name).join(", ")}</p>
-    <p>Album: ${track.album.name}</p>
-    </a>
+  </a>
   `;
   return playlist;
 }

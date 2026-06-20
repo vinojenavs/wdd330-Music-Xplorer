@@ -6,7 +6,7 @@
     --text: #E0E0E0;
 }
 
-body{
+body {
     font-family: "Roboto", sans-serif;
     font-weight: 500;
     margin: 0px;
@@ -22,7 +22,9 @@ h1 {
     padding: 10px;
 }
 
-h2, h3, p {
+h2,
+h3,
+p {
     color: var(--text);
 }
 
@@ -89,7 +91,7 @@ header a {
     grid-column: 3/4;
     position: relative;
     max-width: 350px;
-    margin-right:20px;
+    margin-right: 20px;
 }
 
 .search-input {
@@ -131,7 +133,7 @@ header a {
     text-decoration: none;
 }
 
-.track-card:hover{
+.track-card:hover {
     border: 1px solid var(--lime);
 }
 
@@ -180,27 +182,61 @@ header a {
 }
 
 .news-carousel {
-  display: flex;
-  gap: 1rem;
-  overflow-x: hidden;          
-  white-space: nowrap;
-  margin-bottom: 20px;     
+    display: flex;
+    gap: 1rem;
+    overflow-x: hidden;
+    white-space: nowrap;
+    margin-bottom: 20px;
 }
 
 .news-card {
-  display: grid;       
-  width: 250px;
-  background: var(--gray);
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    display: grid;
+    width: 250px;
+    background: var(--gray);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .news-card p {
-  white-space: normal;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  max-width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+.songlist {
+    background-color: var(--gray);
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+.songlist h3 {
+    margin-left: 10px;
+    font-size: 22px;
+}
+
+.rowsong a {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    text-decoration: none;
+    border: 1px solid var(--lime);
+    border-radius: 30px;
+    padding: 0px;
+    margin: 8px 0px;
+    background-color: var(--black);
+}
+
+.rowsong a p {
+    padding: 5px;
+    justify-self: center;
+}
+
+.rowsong a img {
+    border-radius: 40px;
+    margin: auto 10px;
 }
 
 footer {
@@ -214,4 +250,3 @@ footer p {
     margin: 0px;
     padding: 30px;
 }
-
