@@ -1,5 +1,6 @@
 import { searchTracks } from "./search.mjs";
 import { loadHeaderFooter } from "./headerfooter.mjs";
+import { playlist } from "./playlists.mjs";
 
 loadHeaderFooter();
 
@@ -26,7 +27,7 @@ async function init() {
         list.appendChild(card);
       });
     });
-  } 
+  }
 }
 
 document.addEventListener("DOMContentLoaded", init);
@@ -43,4 +44,23 @@ function buildTrackTemplate(track) {
     </a>
   `;
   return card;
+}
+
+const plcon = document.getElementById("playlist");
+
+if (plcon) {
+  playlist();
+}
+
+const carousel = document.querySelector('.news-carousel');
+
+if (carousel) {
+  function autoScroll() {
+    carousel.scrollLeft += 1;
+    if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
+      carousel.scrollLeft = 0;
+    }
+  }
+
+  setInterval(autoScroll, 20);
 }

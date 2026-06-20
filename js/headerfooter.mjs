@@ -12,14 +12,14 @@ async function loadTemplate(path) {
 
 export async function loadHeaderFooter() {
   const headerTemplate = await loadTemplate("./public/partials/header.html");
-//  const footerTemplate = await loadTemplate("../partials/footer.html");
+ const footerTemplate = await loadTemplate("./public/partials/footer.html");
   const headerElement = document.querySelector("#m-header");
-//  const footerElement = document.querySelector("#m-footer");
+  const footerElement = document.querySelector("#m-footer");
   if (headerElement) {
     renderWithTemplate(headerTemplate, headerElement);
   }
   else {
     console.error("No element with id #m-header found");
   }
-//  renderWithTemplate(footerTemplate, footerElement);
+  renderWithTemplate(footerTemplate, footerElement);
 }

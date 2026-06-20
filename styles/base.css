@@ -13,7 +13,16 @@ body{
     background-color: var(--black);
 }
 
-h1, h2, h3, p {
+main {
+    padding: 0px 20px;
+}
+
+h1 {
+    color: var(--lime);
+    padding: 10px;
+}
+
+h2, h3, p {
     color: var(--text);
 }
 
@@ -40,6 +49,11 @@ header ul {
 
 header li {
     list-style-type: none;
+}
+
+header a {
+    text-decoration: none;
+    color: var(--black);
 }
 
 /*********** Hamburger Menu ***********/
@@ -130,5 +144,74 @@ header li {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+
+/********** Hero Image *********/
+
+.hero {
+    position: relative;
+}
+
+.hero img {
+    position: block;
+    width: 80%;
+    margin: 0 10%;
+}
+
+.hero h2 {
+    position: absolute;
+    top: 0%;
+    right: 13%;
+    font-size: 30px;
+    margin: 9px 0px;
+}
+
+.hero p {
+    position: absolute;
+    top: 80%;
+    left: 15%;
+}
+
+.hero button {
+    position: absolute;
+    top: 90%;
+    left: 15%;
+}
+
+.news-carousel {
+  display: flex;
+  gap: 1rem;
+  overflow-x: hidden;          
+  white-space: nowrap;
+  margin-bottom: 20px;     
+}
+
+.news-card {
+  display: grid;       
+  width: 250px;
+  background: var(--gray);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.news-card p {
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+footer {
+    background-color: var(--lime);
+    margin: 0px;
+    text-align: center;
+}
+
+footer p {
+    color: var(--black);
+    margin: 0px;
+    padding: 30px;
 }
 
