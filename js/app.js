@@ -2,8 +2,6 @@ import { searchTracks } from "./search.mjs";
 import { loadHeaderFooter } from "./headerfooter.mjs";
 import { playlist } from "./playlists.mjs";
 
-loadHeaderFooter();
-
 async function init() {
   await loadHeaderFooter();
 
