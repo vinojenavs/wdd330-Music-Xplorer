@@ -142,7 +142,7 @@ header a {
     width: 150px;
 }
 
-#trackList {
+#trackList, #trending {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

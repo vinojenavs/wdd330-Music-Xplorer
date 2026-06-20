@@ -1,6 +1,7 @@
 import { searchTracks } from "./search.mjs";
 import { loadHeaderFooter } from "./headerfooter.mjs";
 import { playlist } from "./playlists.mjs";
+import { trending } from "./trending.mjs";
 
 async function init() {
   await loadHeaderFooter();
@@ -45,9 +46,13 @@ function buildTrackTemplate(track) {
 }
 
 const plcon = document.getElementById("playlist");
-
 if (plcon) {
   playlist();
+}
+
+const pltrend = document.getElementById("trending");
+if (pltrend) {
+  trending();
 }
 
 const carousel = document.querySelector('.news-carousel');
